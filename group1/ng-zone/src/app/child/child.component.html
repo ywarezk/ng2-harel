@@ -1,0 +1,17 @@
+<p>
+  child works!
+</p>
+
+<button (click)="stam()">
+  button on child
+</button>
+
+{{detectCD()}}
+
+<ul>
+  <li *ngFor="let task of serverObservable | async">
+    {{task.title}}
+  </li>
+</ul>
+
+<app-grand-child></app-grand-child>
