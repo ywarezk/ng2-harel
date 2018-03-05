@@ -1,0 +1,152 @@
+<h1>
+  Angular templates
+</h1>
+
+<h2>
+  transfer data from class to template
+</h2>
+
+<h3>
+  Interpolation
+</h3>
+
+<!-- {{}} -->
+
+<p>
+  {{ title }}
+</p>
+
+<p>
+  {{ printHello() }}
+</p>
+
+<p>
+  {{ 1 + 10 + 'hello'}}
+</p>
+
+<p>
+  {{random()}}
+</p>
+
+<h3>
+  property binding
+</h3>
+
+<!-- [propertyName]="non sideefeect expression" -->
+
+<p [innerText]="title" [style.background-color]="'red'" [class.active]="true">
+
+</p>
+
+<p [innerHTML]="stamMethod()">
+
+</p>
+
+
+<h2>
+  transfer data from template to class
+</h2>
+
+<!--(domEvent)="expression with sideeffect"-->
+
+<div (mouseover)="printOver($event)">
+  hover over me
+</div>
+
+<div (mouseover)="title=title + 'a'">
+  hover over me change title
+</div>
+
+<h2>
+  Two way binding
+</h2>
+
+<input type="text" [value]="twoWayExample1" (input)="twoWayExample1=$event.target.value" />
+
+{{ twoWayExample1 }}
+
+<h3>
+  ngModel
+</h3>
+
+<input type="text" [(ngModel)]="twoWayExample2" />
+{{ twoWayExample2 }}
+
+<h2>
+  Communicating with child component
+</h2>
+
+
+<app-child [message]="sendToChild"></app-child>
+
+<h2>
+  Communicating from child to parent
+</h2>
+
+<h3>
+  @Output
+</h3>
+
+<app-child (buttonClicked)="title=$event"></app-child>
+
+<h3>
+  Template refrence variable
+</h3>
+
+<!-- #variableName="exportAs" -->
+
+<p #stamParagraph class="stam">
+  template refrence demo for dom element
+</p>
+
+<p>
+  {{stamParagraph.className}}
+</p>
+
+<app-child #childInstance="child"></app-child>
+
+<h5>
+  {{childInstance.transferVarToParent}}
+</h5>
+
+
+<input type="text" [(ngModel)]="stamBinding" #getTheDirective="ngModel" />
+
+
+<h2>
+  Pipes
+</h2>
+
+<h3>
+  Json pipe
+</h3>
+
+{{stamObj}}
+
+{{stamObj | json}}
+
+<h3>
+  Async
+</h3>
+
+<ul>
+  <li *ngFor="let task of taskObservable | async">
+    {{task.title}}
+  </li>
+</ul>
+
+
+<h3>
+  Cusom pipe
+</h3>
+<p>
+  {{'hello world' | snake}}
+</p>
+
+<h3>
+  Safe navigation operator
+</h3>
+
+<p>
+  {{thisWillBeFilledAfter2Sec?.hello}}
+</p>
