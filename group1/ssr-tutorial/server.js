@@ -1,15 +1,15 @@
-import 'zone.js/dist/zone-node';
-import 'reflect-metadata';
-import {ngExpressEngine} from '@nguniversal/express-engine';
-import * as express from 'express';
-import * as path from 'path';
-import {Request, Response} from 'express';
-import {enableProdMode} from '@angular/core';
+require('zone.js/dist/zone-node');
+require('reflect-metadata');
+const ngExpressEngine = require('@nguniversal/express-engine').ngExpressEngine;
+const express = require('express');
+const path = require('path');
+// import {Request, Response} from 'express';
+// import {enableProdMode} from '@angular/core';
 
 const { AppServerModule } = require('./dist-server/main.bundle');
 const compression = require('compression')
 
-enableProdMode();
+// enableProdMode();
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.get('*.*', express.static(DIST));
 //
 // });
 
-app.get('*', (req: Request, res: Response, next) => {
+app.get('*', (req, res, next) => {
   res.render('index.html', {req});
 });
 

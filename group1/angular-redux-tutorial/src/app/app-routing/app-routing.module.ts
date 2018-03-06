@@ -8,8 +8,10 @@ import {HomeComponent} from '../home/home.component';
     RouterModule.forRoot([
       {path: 'todo', component: TodoListComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'settings', loadChildren: '../../settings/settings.module#SettingsModule'},
     ])
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 

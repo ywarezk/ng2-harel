@@ -1,6 +1,6 @@
 
 const initialState = new Immutable.Map({
-    isLoadingFromServer: true,
+    isLoadingFromServer: false,
     todoItems: []
 })
 

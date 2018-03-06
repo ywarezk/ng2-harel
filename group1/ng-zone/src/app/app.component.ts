@@ -18,9 +18,9 @@ export class AppComponent {
   }
 
   public stam() {
-    // this.hello.foo += 'a';
-    this.hello = {
-      foo: 'hello world'
-    };
+    this.hello.foo += 'a';
+    // this.hello = {
+    //   foo: 'hello world'
+    // };
   }
 }

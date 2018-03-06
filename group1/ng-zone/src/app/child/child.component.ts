@@ -16,7 +16,13 @@ export class ChildComponent implements OnInit {
   constructor(private _http: HttpClient, private _cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+
     this.serverObservable = this._http.get('https://nztodo.herokuapp.com/api/task/?format=json');
+    // console.log('sending request to server');
+    // this._http.get('https://nztodo.herokuapp.com/api/task/?format=json').subscribe( () => {
+    //   console.log('got response from server');
+    //   this._cd.detectChanges();
+    // });
   }
 
   public detectCD() {

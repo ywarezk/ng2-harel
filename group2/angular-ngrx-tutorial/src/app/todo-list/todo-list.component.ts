@@ -11,10 +11,9 @@ import {Task} from '../models/task';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListComponent implements OnInit {
-  public tasks: Observable<Task[]> = this._store.select((state: IAppState) => {debugger; return state.todo.todoItems});
+  public tasks: Observable<Task[]> = this._store.select((state: IAppState) => state.todo.todoItems);
 
-  constructor(private _store: Store<IAppState>) {
-  }
+  constructor(private _store: Store<IAppState>) { }
 
   ngOnInit() {
   }
